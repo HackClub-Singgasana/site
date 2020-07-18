@@ -1,4 +1,4 @@
-# site
+# site [![Netlify Status](https://api.netlify.com/api/v1/badges/0a00eb9c-2fef-4b29-9a30-80390e15fa77/deploy-status)](https://app.netlify.com/sites/singgasana/deploys)
  Hack Club Singgasana's website.
 
 ## License
