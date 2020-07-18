@@ -1,0 +1,24 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "Hack Club Singgasana's website.",
+  "main": "index.js",
+  "dependencies": {
+    "airtable": "^0.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackClub-Singgasana/site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HackClub-Singgasana/site/issues"
+  },
+  "homepage": "https://github.com/HackClub-Singgasana/site#readme"
+}
