@@ -15,7 +15,6 @@ xhttp.onreadystatechange = function() {
             row++;
             if (row == 4 || i == countLeaders-1){
                 var leaderRow = '<div class="row">' + leaderHTML + '</div>';
-                console.log(leaderRow);
                 document.getElementById('leaders').innerHTML += leaderRow;
                 leaderHTML = '';
                 row = 0;
