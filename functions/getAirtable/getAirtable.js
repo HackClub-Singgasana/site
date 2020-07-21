@@ -5,7 +5,7 @@ const Airtable = require('airtable');
 /** THIS IS YOUR SERVERLESS FUNCTION */
 exports.handler = function(event, context, callback) {
   //pull the required information from your environment variables, which can be set in the Netlify UI
-  const {API_URL, API_CLIENT_ID, API_KEY, DELAY} = process.env;
+  const {API_URL, API_CLIENT_ID, API_KEY} = process.env;
 
   // THIS FUNCTION FORMATS AND SENDS YOUR RESPONSE BACK TO YOUR FRONT-END
   const send = body => {
@@ -21,6 +21,8 @@ exports.handler = function(event, context, callback) {
     apiKey: API_KEY
   });
   var base = Airtable.base(API_CLIENT_ID);
+
+  var data = {};
   
   // Get leaders
   function getLeaders() {
@@ -37,8 +39,10 @@ exports.handler = function(event, context, callback) {
         fetchNextPage();
     }, function done(error) {
         console.log(error);
+        data['leaders'] = leaders;
+        send(data);
     });
-    return leaders;
+    //return leaders;
   }
 
   // Get resources
@@ -55,8 +59,10 @@ exports.handler = function(event, context, callback) {
         fetchNextPage();
     }, function done(error) {
         console.log(error);
+        data['resources'] = resources;
+        getLeaders();
     });
-    return resources;
+    //return resources;
   }
 
   // Get next meeting time and location
@@ -71,16 +77,12 @@ exports.handler = function(event, context, callback) {
         fetchNextPage();
     }, function done(error) {
         console.log(error);
+        data['nextMeeting'] = meetingInfo[0];
+        getResources();
     });
-    return meetingInfo;
+    //return meetingInfo;
   }
 
-  var leaders = getLeaders();
-  var resources = getResources();
-  var nextMeeting = getNextMeeting();
-
-  setTimeout(function () {
-    send({"leaders": leaders, "resources": resources, "nextMeeting": nextMeeting[0]});
-  }, parseInt(DELAY));
+  getNextMeeting();
   
 }
