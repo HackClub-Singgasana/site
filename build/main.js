@@ -1,5 +1,5 @@
 var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
+xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
         var response = JSON.parse(this.responseText);
         var leaders = response['leaders'];
@@ -13,7 +13,7 @@ xhttp.onreadystatechange = function() {
         for (var i = 0; i < countLeaders; i++) {
             leaderHTML += '<div class="leader"><img class="profile-image" src="' + leaders[i]['profilepic'] + '" width="70%"><br><b>' + leaders[i]['name'] + ' | ' + leaders[i]['ranks'] + '</b><p>' + leaders[i]['class'] + '</p><a href="https://github.com/' + leaders[i]['github'] + '" target="_blank">GitHub</a></div>';
             row++;
-            if (row == 4 || i == countLeaders-1){
+            if (row == 4 || i == countLeaders - 1) {
                 var leaderRow = '<div class="row">' + leaderHTML + '</div>';
                 document.getElementById('leaders').innerHTML += leaderRow;
                 leaderHTML = '';
