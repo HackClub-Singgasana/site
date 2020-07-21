@@ -77,17 +77,18 @@ exports.handler = function (event, context, callback) {
 
 	// Get next meeting time and location
 	function getNextMeeting() {
-		var meetingInfo = new Array;
+		var meetingInfo = {};
 		base('Meeting').select({ maxRecords: 1, sort: [{ field: "Created Time", direction: "desc" }] }).eachPage(function page(records, fetchNextPage) {
 			records.forEach(function (record) {
 				var time = record.get('Meeting Time');
 				var location = record.get('Location');
-				meetingInfo.push({ "time": time, "location": location });
+				var notes = record.get('Notes');
+				meetingInfo = { "time": time, "location": location, "notes": notes };
 			});
 			fetchNextPage();
 		}, function done(error) {
 			console.log(error);
-			data['nextMeeting'] = meetingInfo[0];
+			data['nextMeeting'] = meetingInfo;
 			getResources();
 		});
 		//return meetingInfo;
