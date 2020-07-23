@@ -11,7 +11,7 @@ xhttp.onreadystatechange = function () {
         var leaderHTML = '';
         var row = 0;
         for (var i = 0; i < countLeaders; i++) {
-            leaderHTML += '<div class="leader"><img class="profile-image" src="' + leaders[i]['profilepic'] + '" alt="' + leaders[i]['name'] + 's profile" width="70%"><br><b>' + leaders[i]['name'] + ' | ' + leaders[i]['ranks'] + '</b><p>' + leaders[i]['class'] + '</p><a href="https://github.com/' + leaders[i]['github'] + '" target="_blank">GitHub</a></div>';
+            leaderHTML += '<div class="leader"><img class="profile-image" src="' + leaders[i]['profilepic'] + '" alt="' + leaders[i]['name'] + '\'s profile" width="70%"><br><b>' + leaders[i]['name'] + ' | ' + leaders[i]['ranks'] + '</b><p>' + leaders[i]['class'] + '</p><a href="https://github.com/' + leaders[i]['github'] + '" target="_blank">GitHub</a></div>';
             row++;
             if (row == 4 || i == countLeaders - 1) {
                 var leaderRow = '<div class="row">' + leaderHTML + '</div>';
@@ -24,7 +24,7 @@ xhttp.onreadystatechange = function () {
         // Load resources
         var countResources = resources.length;
         for (var i = 0; i < countResources; i++) {
-            var resourceHTML = '<li><div class="resource"><a href="' + resources[i]['link'] + '" target="_blank"><img class="' + resources[i]['name'] + ' resource" src="' + resources[i]['thumbnail'] + '"></a><h4>' + resources[i]['name'] + '</h4><p>' + resources[i]['description'] + '</p></div></li>';
+            var resourceHTML = '<li><div class="resource"><a href="' + resources[i]['link'] + '" target="_blank"><img class="resource-image" alt="' + resources[i]['name'] + ' resource" src="' + resources[i]['thumbnail'] + '"></a><h4>' + resources[i]['name'] + '</h4><p>' + resources[i]['description'] + '</p></div></li>';
             document.getElementById('resource-list').innerHTML += resourceHTML;
         }
 
