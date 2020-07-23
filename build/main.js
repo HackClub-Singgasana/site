@@ -42,3 +42,10 @@ xhttp.onreadystatechange = function () {
 };
 xhttp.open("GET", ".netlify/functions/getAirtable/getAirtable.js", true);
 xhttp.send();
+
+// Defer Airtable Form
+function deferIframe() {
+    var iframeElem = document.getElementById('apply-form');
+    iframeElem.setAttribute('src', iframeElem.getAttribute('data-src'));
+}
+window.onload = deferIframe;
