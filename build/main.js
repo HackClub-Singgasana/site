@@ -33,7 +33,7 @@ xhttp.onreadystatechange = function () {
         var location = nextMeeting['location'];
         var notes = nextMeeting['notes'];
         var timeString = time.toUTCString() + '+7';
-        var meetingHTML = '<div title="Add to Calendar" class="addeventatc">Add to Calendar<span class="start">' + nextMeeting['time'] + '</span><span class="timezone">UTC+7</span><span class="title">Hack Club Singgasana Meeting</span><span class="description">https://singgasana.hackclub.com</span><span class="location">' + location + '</span></div>';
+        var meetingHTML = '<div title="Add to Calendar" class="addeventatc">Add to Calendar<span class="start">' + nextMeeting['time'] + '</span><span class="timezone">UTC+7</span><span class="title">Hack Club Singgasana Meeting</span><span class="description">' + notes + '</span><span class="location">' + location + '</span></div>';
         var notesHTML = '<p><b>Notes: </b>' + notes + '</p>';
         document.getElementById('time').innerHTML = '&#128197; ' + timeString;
         document.getElementById('location').innerHTML = '&#128205; ' + location;
