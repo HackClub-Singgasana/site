@@ -41,10 +41,11 @@ exports.handler = function (event, context, callback) {
 			records.forEach(function (record) {
 				var name = record.get('Name');
 				var classname = record.get('Class');
-				var github = record.get('GitHub');
+				var hyperlink = record.get('hyperlink');
+				var href = record.get('href');
 				var ranks = record.get('Ranks');
 				var profilePic = record.get('Profile Picture')[0]['url'];
-				leaders.push({ "name": name, "class": classname, "github": github, "ranks": ranks, "profilepic": profilePic });
+				leaders.push({ "name": name, "class": classname, "href": href, "hyperlink": hyperlink, "ranks": ranks, "profilepic": profilePic });
 			});
 			fetchNextPage();
 		}, function done(error) {

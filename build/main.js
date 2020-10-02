@@ -11,7 +11,7 @@ xhttp.onreadystatechange = function () {
         var leaderHTML = '';
         var row = 0;
         for (var i = 0; i < countLeaders; i++) {
-            leaderHTML += '<div class="leader"><img class="profile-image" src="' + leaders[i]['profilepic'] + '" alt="' + leaders[i]['name'] + '\'s profile" width="70%"><br><b>' + leaders[i]['name'] + ' | ' + leaders[i]['ranks'] + '</b><p>' + leaders[i]['class'] + '</p><a href="https://github.com/' + leaders[i]['github'] + '" target="_blank" rel="noopener">GitHub</a></div>';
+            leaderHTML += '<div class="leader"><img class="profile-image" src="' + leaders[i]['profilepic'] + '" alt="' + leaders[i]['name'] + '\'s profile" width="70%"><br><b>' + leaders[i]['name'] + ' | ' + leaders[i]['ranks'] + '</b><p>' + leaders[i]['class'] + '</p><a href="' + leaders[i]['href'] + '" target="_blank" rel="noopener">' + leaders[i]['hyperlink'] + '</a></div>';
             row++;
             if (row == 4 || i == countLeaders - 1) {
                 var leaderRow = '<div class="row">' + leaderHTML + '</div>';
