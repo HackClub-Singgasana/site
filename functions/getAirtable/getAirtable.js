@@ -45,7 +45,7 @@ exports.handler = function (event, context, callback) {
 				var href = record.get('href');
 				var ranks = record.get('Ranks');
 				var profilePic = record.get('Profile Picture')[0]['url'];
-				leaders.push({ "name": name, "class": classname, "github": github, "href": href, "hyperlink": hyperlink, "ranks": ranks, "profilepic": profilePic });
+				leaders.push({ "name": name, "class": classname, "href": href, "hyperlink": hyperlink, "ranks": ranks, "profilepic": profilePic });
 			});
 			fetchNextPage();
 		}, function done(error) {
