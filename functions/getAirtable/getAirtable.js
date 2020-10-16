@@ -82,9 +82,10 @@ exports.handler = function (event, context, callback) {
 		base('Meeting').select({ maxRecords: 1, sort: [{ field: "Created Time", direction: "desc" }] }).eachPage(function page(records, fetchNextPage) {
 			records.forEach(function (record) {
 				var time = record.get('Meeting Time');
+				var duration = record.get('Duration');
 				var location = record.get('Location');
 				var notes = record.get('Notes');
-				meetingInfo = { "time": time, "location": location, "notes": notes };
+				meetingInfo = { "time": time, "location": location, "notes": notes, "duration": duration};
 			});
 			fetchNextPage();
 		}, function done(error) {
